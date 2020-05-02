@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!-- saved from url=(0092)http://static.idiot.io/?fbclid=IwAR0vAwNC2pDtBSnNeDsUcwz5ViXxWEu-Wl88HHXtr6GUk_QYWIsSOtuDEHc -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial;
+  font-size: 17px;
+}
+
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+}
+
+.content {
+  position: fixed;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0);
+  color: #f1f1f1;
+  width: 100%;
+  padding: 20px;
+}
+
+#myBtn {
+  width: 150px;
+  font-size: 18px;
+  padding: 2px;
+  border: 2px solid;
+  background: none;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+#myBtn:hover {
+  background: #ffffff;
+  color: black;
+}
+
+</style>
+</head>
+<body>
+
+<video autoplay="" muted="" loop="" id="myVideo">
+  <source src="BRVBOT2019.mp4" type="video/mp4">
+  Your browser does not support HTML5 video.
+</video>
+
+<div class="content">
+  <!--<h1>idiot.io</h1>-->
+  <img src="LOGO1.png" alt="idiot.io" height="155" width="155"  ><br>
+
+  <button id="myBtn" onclick="myFunction()">Play</button>
+  <button id="myBtn" onclick="window.location.href='https://idiot.io/projects'" >Projects</button>
+  <button id="myBtn" onclick="window.location.href='https://idiot.io/about'" >About</button>
+   <p>Follow idiot.io :</p>
+  <a href="https://github.com/idiot-io"><img border="0" alt="idiot.io" src="GithubLogo.png" width="45" height="45"></a>
+  <a href="https://wiki.idiot.io/"><img border="0" alt="idiot.io" src="WikiLogo.png" width="45" height="45"></a>
+   <a href="https://www.facebook.com/Idiot.io/"><img border="0" alt="idiot.io" src="FBLogo.png" width="45" height="45"></a>
+	<a href="https://www.instagram.com/powered_by_idiot.io/"><img border="0" alt="idiot.io" src="InstaLogo.png" width="45" height="45"></a>
+ 
+</div>
+
+<script>
+var video = document.getElementById("myVideo");
+var btn = document.getElementById("myBtn");
+
+function myFunction() {
+  if (video.paused) {
+    video.play();
+    btn.innerHTML = "Pause";
+  } else {
+    video.pause();
+    btn.innerHTML = "Play";
+  }
+}
+</script>
+
+
+
+</body></html>
