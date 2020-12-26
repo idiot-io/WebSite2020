@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0092)http://static.idiot.io/?fbclid=IwAR0vAwNC2pDtBSnNeDsUcwz5ViXxWEu-Wl88HHXtr6GUk_QYWIsSOtuDEHc -->
+
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
@@ -38,7 +38,7 @@
         padding: 20px;
       }
 
-      #myBtn {
+      .button {
         width: 150px;
         font-size: 18px;
         padding: 2px;
@@ -47,41 +47,54 @@
         color: #ffffff;
         cursor: pointer;
       }
+	  
+	  .half {
+        width: 75px;
+        font-size: 12px;
+        padding: 0px;
+        border: 0px solid;
+        background: none;
+        color: #ffffff;
+        cursor: pointer;
+	  }
 
-      #myBtn:hover {
+      #button:hover {
         background: #ffffff;
         color: black;
       }
     </style>
   </head>
-  <body>
-    <div id="divVideo "></div>
+  <body onload="shuffleVid()">
 
     <video class="video-js" muted autoplay loop id="myVideo">
       <source id="mp4video" src="temp.mp4" type="video/mp4" />
-      Your browser does not support HTML5 video.
     </video>
-    <!-- choose a random video background from the archives -->
-    <script type="text/javascript">
-      var videosource = document.getElementById("mp4video");
-      let rndv = Math.floor(Math.random() * 270);
-      console.log(vidz[rndv]);
-      videosource.setAttribute("src", vidz[rndv]);
-    </script>
+
 
     <div class="content">
       <!--<h1>idiot.io</h1>-->
       <img src="LOGO1.png" alt="idiot.io" height="155" width="155" /><br />
 
-      <button id="myBtn" onclick="myFunction()">Play</button><br />
+      <button class="half"  onclick="shuffleVid()">next</button>
+      <button class="half" id="muteBtn" onclick="muteVid()">sound</button>
+	  
+	  <br />
       <button
-        id="myBtn"
+        class="button"
         onclick="window.location.href='https://idiot.io/projects'"
       >
-        Projects</button
-      ><br />
+        Projects
+		</button>
+		<br />
+		      <button
+        class="button"
+        onclick="window.location.href='https://wiki.idiot.io/'"
+      >
+        Wiki
+		</button>
+		<br />
       <button
-        id="myBtn"
+        class="button"
         onclick="window.location.href='https://idiot.io/about'"
       >
         About
@@ -118,18 +131,27 @@
     </div>
 
     <script>
-      var video = document.getElementById("myVideo");
-      var btn = document.getElementById("myBtn");
-
-      function myFunction() {
-        if (video.paused) {
-          video.play();
-          btn.innerHTML = "Pause";
-        } else {
-          video.pause();
-          btn.innerHTML = "Play";
+		var video = document.getElementById("myVideo");
+	  //play/pause
+      function muteVid() {
+		var player = videojs('myVideo');
+		var btn = document.getElementById("muteBtn");
+        if (player.muted()===false) {
+          player.muted(true);
+          btn.innerHTML = "sound";
+        } else if(player.muted()===true){
+          player.muted(false);
+          btn.innerHTML = "mute";
         }
+		console.log(player.muted());
       }
+	  //play next
+	  function shuffleVid(){
+		var videosource = document.getElementById("mp4video");
+		let rndv = Math.floor(Math.random() * vidz.length);
+		console.log(vidz[rndv]);
+		video.setAttribute("src", vidz[rndv]);
+	  }
     </script>
 
     <script src="https://vjs.zencdn.net/7.7.5/video.js"></script>
